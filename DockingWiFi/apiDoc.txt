@@ -1,0 +1,23 @@
+
+GET: http://peraride-api.herokuapp.com/api/auth/dock/unlock?dock_id=1111.1
+   when user pressed the unlock button, this is the API request send by the Docking station to the server
+
+ 	{
+    	"message": "Access Denied"
+	}
+
+GET: http://peraride-api.herokuapp.com/api/auth/dock/lock
+Body:
+   {"dock_id": "1111.1","rfid_code":"asd2324"}
+
+   When user didn't un mounted the bike within 30sec, this should be sent.
+
+
+GET: http://peraride-api.herokuapp.com/api/auth/bike/unlock?bike_id=10005
+
+This is the API call send by the mobile app to the server, by asking to unlock a bike
+
+404 if no bike is found with the id or empty query parameter
+200 if bike exists and now bike resource locked for 30 seconds for the user. If user does
+   Not press the button in the dock within this 30 seconds, resource lock will be cleared.
+   If another user request for the same bike within this 30 seconds
