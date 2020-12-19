@@ -3,3 +3,6 @@
 
 #define WIFI_SSID ""
 #define WIFI_PASSWORD ""
+
+#define STATION_ID 1111
+#define AUTH_KEY ""

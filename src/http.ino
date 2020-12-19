@@ -79,7 +79,7 @@ boolean dockLock(uint8_t dockId, char* rfidCode) {
 
          if (http.begin(client, url)) {  // HTTP
             http.addHeader("Content-Type", "application/json");
-            //http.addHeader("Authorization: Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTVmYmFkMDRmOTAyNDAwMDQ3NWY1Y2QiLCJpYXQiOjE1ODM5MDcwNDN9.Wgbj3o-rAazSYYzTkm9y6iMK1mk0MIwXkcaTzFEJ7hc");
+            http.addHeader("Authorization: Bearer", AUTH_KEY);
 
             int httpCode = http.POST(body);
 

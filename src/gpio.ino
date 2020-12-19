@@ -65,3 +65,7 @@ void relayOn(){
 void relayOff(){
    digitalWrite(PIN_RELAY, HIGH);
 }
+
+boolean limitSW_Read(){
+    return (analogRead(PIN_LIMIT) < 512);
+}
