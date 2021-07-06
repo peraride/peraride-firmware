@@ -10,8 +10,6 @@ GND     = GND
 3.3V    = 3.3V
 ********************************************/
 
-
-
 void initRFID(){
     SPI.begin();
     rfid.PCD_Init();

@@ -1,8 +1,8 @@
-
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 #include <ESP8266HTTPClient.h>
 #include <WiFiClient.h>
+#include <Servo.h>
 
 #include <SPI.h>
 #include "MFRC522.h"
@@ -12,6 +12,7 @@
 
 ESP8266WiFiMulti WiFiMulti;
 MFRC522 rfid(PIN_SS, PIN_RST);
+Servo lockServo;
 
 uint8_t serialId[4];
 uint8_t dockId=1;
@@ -34,10 +35,6 @@ void setup() {
     initRFID();
 
     blinkLED(PIN_LED_BLUE,2,200);
-
-    /*relayOn();
-    delay(1500);
-    relayOff();*/
 }
 
 void loop() {

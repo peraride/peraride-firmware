@@ -1,5 +1,4 @@
 
-
 void isLimitTriggered(){
 
     // Is a bike inserted to the socket ?
@@ -39,7 +38,6 @@ void isLimitTriggered(){
     delay(500);
 }
 
-
 void isPushButtonPressed(){
     // Push button is pressed.
     if(digitalRead(PIN_PUSH_BUTTON) == 0){
@@ -70,7 +68,7 @@ void isPushButtonPressed(){
 }
 
 void unmountBike(){
-    relayOn();
+    lockOpen();
 
     if (limitSW_Read() == 0){
         // No bike attached
@@ -88,7 +86,7 @@ void unmountBike(){
             break;
         }
     }
-    relayOff();
+    lockClose();
     Serial.println("Timeout ok");
 
     delay(3000);
