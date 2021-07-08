@@ -9,6 +9,6 @@
 #define PIN_RST D1              // GPIO 5
 #define PIN_SS	D2              // GPIO 4
 
-// For Servo motor position configurations 
-#define SERVO_LOCK_POSITION 50
-#define SERVO_UNLOCK_POSITION 130
+// For Servo motor position configurations
+#define SERVO_LOCK_POSITION 90
+#define SERVO_UNLOCK_POSITION 10

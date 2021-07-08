@@ -7,13 +7,15 @@ void initGPIO(){
     pinMode(PIN_BUZZER, OUTPUT);
 
     digitalWrite(PIN_LED_BLUE, HIGH);
-    lockClose();
+
 
     // Use Solonoid to control the lock
     // pinMode(PIN_RELAY, OUTPUT);
 
     // Use Servo motor to control the lock
     lockServo.attach(PIN_SERVO, 500, 2400);
+    lockClose();
+    // lockOpen();
 }
 
 void blinkLED(int pin, int c, int d){

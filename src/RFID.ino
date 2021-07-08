@@ -1,3 +1,4 @@
+#include "error_handler.h"
 
 /********************************************
 Wiring the MFRC522 to ESP8266 (ESP-12)
@@ -13,6 +14,10 @@ GND     = GND
 void initRFID(){
     SPI.begin();
     rfid.PCD_Init();
+
+    // byte readReg = rfid.PCD_ReadRegister(rfid.VersionReg);
+
+    rfid.PCD_DumpVersionToSerial();
 }
 
 boolean checkRFID(){
@@ -28,6 +33,7 @@ boolean checkRFID(){
 uint8_t checkRFIDpresent(){
 
     boolean hasACard = false;
+
     if(rfid.PICC_IsNewCardPresent()==false){
         if(rfid.PICC_IsNewCardPresent()==true){
             hasACard=true;
@@ -48,7 +54,7 @@ uint8_t checkRFIDpresent(){
         return ((cardUID[0]+cardUID[1]+cardUID[2]+cardUID[3] )>0); // Return non-zero value
 
     }else{
-        Serial.println(F("Card not detected"));
+        print_error("Card not detected");
     }
 
     return 0;
